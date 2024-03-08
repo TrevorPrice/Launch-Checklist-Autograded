@@ -14,3 +14,7 @@ window.addEventListener("load", function() {
     })
     
  });
+
+
+// add event listener for button
+//use formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel)

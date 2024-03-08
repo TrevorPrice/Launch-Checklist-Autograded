@@ -18,7 +18,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function validateInput(testInput) {
-    
+
  }
  
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
@@ -35,6 +35,10 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function pickPlanet(planets) {
+    let planet = {};
+
+    //Get random number and get planet with that index
+    return planet;
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;
