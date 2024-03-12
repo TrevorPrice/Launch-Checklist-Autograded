@@ -40,23 +40,42 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     } else {
         pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
         copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
-    }
-    if (Number(fuelLevel) < 10000) {
-        fuelStatus.innerHTML = `Fuel level too low for launch`;
-        list.style.visibility = "visible";
-        launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
-        launchStatus.style.color = "red";
-    } else if (Number(cargoLevel) > 10000) {
-        cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
-        fuelStatus.innerHTML = `Fuel level high enough for launch`;
-        list.style.visibility = "visible";
-        launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
-        launchStatus.style.color = "red";
-    } else {
-        launchStatus.style.color = "green";
-        launchStatus.innerHTML = `Shuttle is Ready for Launch`;
-        fuelStatus.innerHTML = `Fuel level high enough for launch`;
-        cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+        if (Number(fuelLevel) < 10000) {
+            fuelStatus.innerHTML = `Fuel level too low for launch`;
+            list.style.visibility = "visible";
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            launchStatus.style.color = "red";
+        } else if (Number(cargoLevel) > 10000) {
+            cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+            fuelStatus.innerHTML = `Fuel level high enough for launch`;
+            list.style.visibility = "visible";
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            launchStatus.style.color = "red";
+        } else if (Number(fuelLevel) < 10000 && Number(cargoLevel) < 10000) {
+            fuelStatus.innerHTML = `Fuel level too low for launch`;
+            cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+            list.style.visibility = "visible";
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            launchStatus.style.color = "red";
+        } else if (Number(fuelLevel) >= 10000 && Number(cargoLevel) > 10000) {
+            fuelStatus.innerHTML = `Fuel level high enough for launch`;
+            cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+            list.style.visibility = "visible";
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            launchStatus.style.color = "red";
+        } else if (Number(fuelLevel) < 10000 && Number(cargoLevel) > 10000) {
+            list.style.visibility = "visible";
+            launchStatus.style.color = "red";
+            launchStatus.innerHTML = `Shuttle Not Ready for Launch`;
+            fuelStatus.innerHTML = `Fuel level too low for launch`;
+            cargoStatus.innerHTML = `Cargo mass too heavy for launch`;
+        } else {
+            launchStatus.style.color = "green";
+            launchStatus.innerHTML = `Shuttle is Ready for Launch`;
+            fuelStatus.innerHTML = `Fuel level high enough for launch`;
+            cargoStatus.innerHTML = `Cargo mass low enough for launch`;
+            list.style.visibility = "visible";
+        }
     }
  }
  

@@ -7,9 +7,13 @@ function validateInput(testInput) {
     return "Is a Number";
   }
 }
-console.log(validateInput("10"));
+console.log(validateInput("Trevor"));
+console.log(validateInput("Morgan"));
+console.log(validateInput(10000));
+console.log(validateInput(500));
 
 //below is formSubmission passing 5 tests. Re-writing code in scriptHelper.js
+
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   const pilotStatus = document.getElementById("pilotStatus");
   const copilotStatus = document.getElementById("copilotStatus");
@@ -19,26 +23,13 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
   const faultyItems = document.getElementById("faultyItems");
 
   //Check that all fields are filled
-  if (
-    validateInput(pilot) === "Empty" ||
-    validateInput(copilot) === "Empty" ||
-    validateInput(fuelLevel) === "Empty" ||
-    validateInput(cargoLevel) === "Empty"
-  ) {
+  if (validateInput(pilot) === "Empty" || validateInput(copilot) === "Empty" || validateInput(fuelLevel) === "Empty" || validateInput(cargoLevel) === "Empty") {
     window.alert("All fields are required.");
     //make sure to add valid information for each field
-  } else if (
-    validateInput(pilot) === "Is a Number" ||
-    validateInput(copilot) === "Is a Number"
-  ) {
+  } else if (validateInput(pilot) === "Is a Number" || validateInput(copilot) === "Is a Number") {
     window.alert("Please enter a valid name for the pilot and co-pilot.");
-  } else if (
-    validateInput(fuelLevel) === "Not a Number" ||
-    validateInput(cargoLevel) === "Not a Number"
-  ) {
-    window.alert(
-      "Please enter a valid number for the fuel level and cargo level."
-    );
+  } else if (validateInput(fuelLevel) === "Not a Number" || validateInput(cargoLevel) === "Not a Number") {
+    window.alert("Please enter a valid number for the fuel level and cargo level.");
     //update pilot and co-pilot status
   } else {
     pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
